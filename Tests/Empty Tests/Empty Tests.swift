@@ -1,4 +1,4 @@
-import Empty_Primitives
+import Empty
 import Testing
 
 @Suite struct `Empty Tests` {
