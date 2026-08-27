@@ -15,13 +15,32 @@ let package = Package(
         .library(
             name: "Empty",
             targets: ["Empty"]
-        )
+        ),
+        .library(
+            name: "Empty Standard Library Integration",
+            targets: ["Empty Standard Library Integration"]
+        ),
+        .library(
+            name: "Empty Apple Foundation Integration",
+            targets: ["Empty Apple Foundation Integration"]
+        ),
     ],
     dependencies: [],
     targets: [
         .target(
             name: "Empty",
             dependencies: []
+        ),
+        .target(
+            name: "Empty Standard Library Integration",
+            dependencies: ["Empty"]
+        ),
+        .target(
+            name: "Empty Apple Foundation Integration",
+            dependencies: [
+                "Empty",
+                "Empty Standard Library Integration",
+            ]
         ),
         .testTarget(
             name: "Empty Tests",
