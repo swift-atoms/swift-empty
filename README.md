@@ -41,7 +41,7 @@ let b = a   // compiles only because Empty<Int>: Copyable
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-molecules/swift-empty.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-empty.git", branch: "main")
 ]
 ```
 
