@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-empty-primitives",
+    name: "swift-empty",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,19 +13,19 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Empty Primitives",
-            targets: ["Empty Primitives"]
+            name: "Empty",
+            targets: ["Empty"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "Empty Primitives",
+            name: "Empty",
             dependencies: []
         ),
         .testTarget(
-            name: "Empty Primitives Tests",
-            dependencies: ["Empty Primitives"]
+            name: "Empty Tests",
+            dependencies: [.target(name: "Empty")]
         ),
     ],
     swiftLanguageModes: [.v6]

@@ -1,4 +1,4 @@
-# Empty Primitives
+# Empty
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -11,7 +11,7 @@ The empty value — `Empty<Element>`, a storage-less type representing the "noth
 `Empty<Element>` carries no element and no behavior of its own. It is the shared *anchor* onto which each domain package attaches its own conformance — the empty iterator, the empty sequence, the empty collection — so the empty case is defined once and reused, rather than re-declared per domain (compare the standard library's `EmptyCollection`, a single top-level type that is its own iterator).
 
 ```swift
-import Empty_Primitives
+import Empty
 
 // The empty value of a domain. The element type is supplied at the use site.
 let nothing = Empty<Int>()
@@ -23,7 +23,7 @@ print(MemoryLayout<Empty<Int>>.size)   // 0
 `Element` is unconstrained (`~Copyable & ~Escapable`), and `Empty` inherits its element's capabilities through conditional conformances: `Empty<Int>` is copyable and escapable, while `Empty<MoveOnly>` is move-only. This lets the empty case compose uniformly with the one-element case and the rest of the family in generic `~Copyable` / `~Escapable` contexts.
 
 ```swift
-import Empty_Primitives
+import Empty
 
 struct Token: ~Copyable {}
 
@@ -41,7 +41,7 @@ let b = a   // compiles only because Empty<Int>: Copyable
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-empty-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-empty.git", branch: "main")
 ]
 ```
 
@@ -49,7 +49,7 @@ dependencies: [
 .target(
     name: "App",
     dependencies: [
-        .product(name: "Empty Primitives", package: "swift-empty-primitives"),
+        .product(name: "Empty", package: "swift-empty"),
     ]
 )
 ```
@@ -64,7 +64,7 @@ One library product. No dependencies.
 
 | Product | Target | Purpose |
 |---------|--------|---------|
-| `Empty Primitives` | `Sources/Empty Primitives/` | The `Empty<Element>` type: a storage-less value over an unconstrained `~Copyable & ~Escapable` element, with conditional `Copyable` and `Escapable` conformances that mirror the element's capabilities. |
+| `Empty` | `Sources/Empty/` | The `Empty<Element>` type: a storage-less value over an unconstrained `~Copyable & ~Escapable` element, with conditional `Copyable` and `Escapable` conformances that mirror the element's capabilities. |
 
 Foundation-free.
 
