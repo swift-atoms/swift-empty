@@ -5,6 +5,6 @@ public struct Empty<Element: ~Copyable & ~Escapable>: ~Copyable, ~Escapable {
     public init() {}
 }
 
-extension Empty: Copyable where Element: Copyable & ~Escapable {}
+extension Empty: Swift.Copyable where Element: Swift.Copyable & ~Escapable {}
 
-extension Empty: Escapable where Element: Escapable & ~Copyable {}
+extension Empty: Swift.Escapable where Element: Swift.Escapable & ~Copyable {}

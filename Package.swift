@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Empty", targets: ["Empty"]),
-        .library(name: "Empty Standard Library Integration", targets: ["Empty Standard Library Integration"]),
-        .library(name: "Empty Foundation Library Integration", targets: ["Empty Foundation Library Integration"]),
+
+        .library(name: "Empty Foundation Integration", targets: ["Empty Foundation Integration"]),
         .library(name: "Empty Test Support", targets: ["Empty Test Support"]),
     ],
     dependencies: [],
@@ -25,20 +25,13 @@ let package = Package(
             ],
             path: "Sources/Empty"
         ),
+        
         .target(
-            name: "Empty Standard Library Integration",
+            name: "Empty Foundation Integration",
             dependencies: [
                 .target(name: "Empty"),
             ],
-            path: "Sources/Empty Standard Library Integration"
-        ),
-        .target(
-            name: "Empty Foundation Library Integration",
-            dependencies: [
-                .target(name: "Empty"),
-                .target(name: "Empty Standard Library Integration"),
-            ],
-            path: "Sources/Empty Foundation Library Integration"
+            path: "Sources/Empty Foundation Integration"
         ),
         .target(
             name: "Empty Test Support",
@@ -52,8 +45,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Empty"),
                 .target(name: "Empty Test Support"),
-                .target(name: "Empty Standard Library Integration"),
-                .target(name: "Empty Foundation Library Integration"),
+                .target(name: "Empty Foundation Integration"),
             ],
             path: "Tests/Empty Tests"
         ),
