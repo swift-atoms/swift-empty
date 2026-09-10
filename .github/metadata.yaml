@@ -1,4 +1,3 @@
-# .github/metadata.yaml
 description: "The empty value — a storage-less Empty<Element> type shared across the primitives family."
 topics:
   - primitives
