@@ -21,22 +21,21 @@ let package = Package(
     targets: [
         .target(
             name: "Empty",
-            dependencies: [
-            ],
+            dependencies: [],
             path: "Sources/Empty"
         ),
-        
+
         .target(
             name: "Empty Foundation Integration",
             dependencies: [
-                .target(name: "Empty"),
+                .target(name: "Empty")
             ],
             path: "Sources/Empty Foundation Integration"
         ),
         .target(
             name: "Empty Test Support",
             dependencies: [
-                .target(name: "Empty"),
+                .target(name: "Empty")
             ],
             path: "Tests/Support"
         ),
@@ -53,14 +52,15 @@ let package = Package(
 )
 
 for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    target.swiftSettings = (target.swiftSettings ?? []) + [
-        .strictMemorySafety(),
-        .enableUpcomingFeature("ExistentialAny"),
-        .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-        .enableUpcomingFeature("InferIsolatedConformances"),
-        .enableExperimentalFeature("Lifetimes"),
-        .treatAllWarnings(as: .error),
-    ]
+    target.swiftSettings =
+        (target.swiftSettings ?? []) + [
+            .strictMemorySafety(),
+            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("InternalImportsByDefault"),
+            .enableUpcomingFeature("MemberImportVisibility"),
+            .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+            .enableUpcomingFeature("InferIsolatedConformances"),
+            .enableExperimentalFeature("Lifetimes"),
+            .treatAllWarnings(as: .error),
+        ]
 }
